@@ -1,0 +1,223 @@
+<!--HEADER SECTION-->
+<section>
+    <div class="tourz-search">
+        <div class="container">
+            <div class="row">
+                <div class="tourz-search-1">
+                    <h1>Plan Your Travel Now!</h1>
+                    <p>Experience the various exciting tour and travel packages and Make hotel reservations, find vacation packages, search cheap hotels and events</p>
+                    <!-- <form class="tourz-search-form">
+                        <div class="input-field">
+                            <input type="text" id="select-city" class="autocomplete">
+                            <label for="select-city">Enter city</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="select-search" class="autocomplete">
+                            <label for="select-search" class="search-hotel-type">Search over a million tour and travels, sight seeings, hotels and more</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="submit" value="search" class="waves-effect waves-light tourz-sear-btn"> </div>
+                    </form> -->
+                    <div class="tourz-hom-ser">
+                        <ul>
+                            <li>
+                                <a href="booking-tour-package.html" class="waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp" data-wow-duration="0.5s"><img src="assets/images/icon/2.png" alt=""> Tour</a>
+                            </li>
+                            <li>
+                                <a href="booking-flight.html" class="waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp" data-wow-duration="1s"><img src="assets/images/icon/31.png" alt=""> Flight</a>
+                            </li>
+                            <li>
+                                <a href="booking-car-rentals.html" class="waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp" data-wow-duration="1.5s"><img src="assets/images/icon/30.png" alt=""> Car Rentals</a>
+                            </li>
+                            <li>
+                                <a href="booking-hotel.html" class="waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp" data-wow-duration="2s"><img src="assets/images/icon/1.png" alt=""> Hotel</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--END HEADER SECTION-->
+
+<section>
+    <div class="rows pad-bot-redu tb-space">
+        <div class="container">
+            <!-- TITLE & DESCRIPTION -->
+            <div class="spe-title">
+                <h2>Top <span>Tour Packages</span></h2>
+                <div class="title-line">
+                    <div class="tl-1"></div>
+                    <div class="tl-2"></div>
+                    <div class="tl-3"></div>
+                </div>
+                <p>Tarkarli's leading tour and travels Booking website,Over 3,000 packages.</p>
+            </div>
+            <div>
+                <!-- TOUR PLACE 1 -->
+                <div *ngFor="let data of packages" class="col-md-4 col-sm-6 col-xs-12 b_packages" data-wow-duration="0.5s">
+                    <!-- OFFER BRAND -->
+                    <div *ngIf="data.offer" class="band"> <img [src]="data.offer" alt="" /> </div>
+                    <!-- IMAGE -->
+                    <div class="v_place_img"> 
+                        
+                        <a (click)="changeRoute(data)" >
+                            <img [src]="data.image" alt="Tour Booking" title="Tour Booking" />
+                        </a>
+                     </div>
+                    <!-- TOUR TITLE & ICONS -->
+                    <div class="b_pack rows">
+                        <!-- TOUR TITLE -->
+                        <div class="col-md-8 col-sm-8">
+                            <h4><a href="tour-details.html">{{data.name}}<span class="v_pl_name">({{data.price}})</span></a></h4>
+                        </div>
+                        <!-- TOUR ICONS -->
+                        <div class="col-md-4 col-sm-4 pack_icon">
+                            <ul>
+                                <li>
+                                    <a href="#"><img src="assets/images/clock.png" alt="Date" title="Tour Timing" /> </a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="assets/images/info.png" alt="Details" title="View more details" /> </a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="assets/images/price.png" alt="Price" title="Price" /> </a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="assets/images/map.png" alt="Location" title="Location" /> </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                 </div>
+        </div>
+    </div>
+</section>
+
+<!--====== HOME HOTELS ==========-->
+<section>
+    <div class="rows tb-space pad-top-o pad-bot-redu">
+        <div class="container">
+            <!-- TITLE & DESCRIPTION -->
+            <div class="spe-title">
+                <h2>Popular <span>Activities</span> </h2>
+                <div class="title-line">
+                    <div class="tl-1"></div>
+                    <div class="tl-2"></div>
+                    <div class="tl-3"></div>
+                </div>
+                <p>This holiday season, experience parasailing and water sports in Tarkarli and relax in the tranquility of lush, open beaches for an offbeat adventure!</p>
+            </div>
+            <!-- CITY -->
+            <div class="col-md-6">
+                <a href="tour-details.html">
+                    <div class="tour-mig-like-com">
+                        <div class="tour-mig-lc-img"> <img src="assets/images/activities/scuba_diving1.jpg" alt=""> </div>
+                        <div class="tour-mig-lc-con">
+                            <h5>Scuba Diving</h5>
+                            <p><span>6 Packages</span> Starting from 2,000 INR</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="tour-details.html">
+                    <div class="tour-mig-like-com">
+                        <div class="tour-mig-lc-img"> <img src="assets/images/activities/water_sports.jpg" alt=""> </div>
+                        <div class="tour-mig-lc-con tour-mig-lc-con2">
+                            <h5>Water Sports</h5>
+                            <p>Starting from 2,400 INR</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="tour-details.html">
+                    <div class="tour-mig-like-com">
+                        <div class="tour-mig-lc-img"> <img src="assets/images/activities/paraselling.jpg" alt=""> </div>
+                        <div class="tour-mig-lc-con tour-mig-lc-con2">
+                            <h5>Parasailing</h5>
+                            <p>Starting from 800 INR</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="tour-details.html">
+                    <div class="tour-mig-like-com">
+                        <div class="tour-mig-lc-img"> <img src="assets/images/activities/boating.jpg" alt=""> </div>
+                        <div class="tour-mig-lc-con tour-mig-lc-con2">
+                            <h5>Boating</h5>
+                            <p>Starting from 2,000 INR</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="tour-details.html">
+                    <div class="tour-mig-like-com">
+                        <div class="tour-mig-lc-img"> <img src="assets/images/activities/jet_ski.jpg" alt=""> </div>
+                        <div class="tour-mig-lc-con tour-mig-lc-con2">
+                            <h5>Jet Ski Ride</h5>
+                            <p>Starting from 500 INR</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--====== HOME HOTELS ==========-->
+
+
+<!--====== POPULAR TOUR PLACES ==========-->
+<section>
+    <div class="rows pla pad-bot-redu tb-space">
+        <div class="pla1 p-home container">
+            <!-- TITLE & DESCRIPTION -->
+            <div class="spe-title spe-title-1">
+                <h2>Top <span>Sight Seeing</span> in this month</h2>
+                <div class="title-line">
+                    <div class="tl-1"></div>
+                    <div class="tl-2"></div>
+                    <div class="tl-3"></div>
+                </div>
+                <p>Book travel packages and enjoy your holidays with distinctive experience</p>
+            </div>
+            <div class="popu-places-home">
+                <!-- POPULAR PLACES 1 -->
+                <div class="col-md-6 col-sm-6 col-xs-12 place">
+                    <div class="col-md-6 col-sm-12 col-xs-12"> <img src="assets/images/sight/4.jpg" alt="" /> </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <h3><span>Outdoor Activities</span> Tarkarli Beach</h3>
+                        <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p> <a href="tour-details.html" class="link-btn">more info</a> </div>
+                </div>
+                <!-- POPULAR PLACES 2 -->
+                <div class="col-md-6 col-sm-6 col-xs-12 place">
+                    <div class="col-md-6 col-sm-12 col-xs-12"> <img src="assets/images/sight/1.jpg" alt="" /> </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <h3><span>Sights & Landmarks</span> Rameshwar Temple</h3>
+                        <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p> <a href="tour-details.html" class="link-btn">more info</a> </div>
+                </div>
+            </div>
+            <div class="popu-places-home">
+                <!-- POPULAR PLACES 3 -->
+                <div class="col-md-6 col-sm-6 col-xs-12 place">
+                    <div class="col-md-6 col-sm-12 col-xs-12"> <img src="assets/images/sight/2.jpg" alt="" /> </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <h3><span>Sights & Landmarks</span> Rock Garden</h3>
+                        <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p> <a href="tour-details.html" class="link-btn">more info</a> </div>
+                </div>
+                <!-- POPULAR PLACES 4 -->
+                <div class="col-md-6 col-sm-6 col-xs-12 place">
+                    <div class="col-md-6 col-sm-12 col-xs-12"> <img src="assets/images/sight/3.jpg" alt="" /> </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <h3><span>Sights & Landmarks</span> Sindhudurg Fort</h3>
+                        <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p> <a href="tour-details.html" class="link-btn">more info</a> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
