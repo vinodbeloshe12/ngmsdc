@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 
 @Component({
   selector: 'app-package',
@@ -7,6 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./package.component.css']
 })
 export class PackageComponent implements OnInit {
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[];
 package:any={};
 packages=[{
   "name":"Economy",
@@ -37,6 +40,48 @@ packages=[{
   constructor(private activatedRoute: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
+    this.galleryOptions = [
+      {
+          width: '100%',
+          height: '450px',
+          thumbnailsColumns: 6,
+          imageAnimation: NgxGalleryAnimation.Slide
+      },
+      // max-width 800
+      {
+          breakpoint: 800,
+          width: '100%',
+          height: '300px',
+          imagePercent: 80,
+          thumbnailsPercent: 20,
+          thumbnailsMargin: 20,
+          thumbnailMargin: 20
+      },
+      // max-width 400
+      {
+          breakpoint: 400,
+          preview: false
+      }
+  ];
+
+  this.galleryImages = [
+      {
+          small: 'assets/images/gallery/t1.jpg',
+          medium: 'assets/images/gallery/t1.jpg',
+          big: 'assets/images/gallery/t1.jpg'
+      },
+      {
+          small: 'assets/images/gallery/t2.jpg',
+          medium: 'assets/images/gallery/t2.jpg',
+          big: 'assets/images/gallery/t2.jpg'
+      },
+      {
+          small: 'assets/images/gallery/t3.jpg',
+          medium: 'assets/images/gallery/t3.jpg',
+          big: 'assets/images/gallery/t3.jpg'
+      }
+  ];
+
    console.log("params",this.activatedRoute.snapshot.params.name);
    let fIndex= this.packages.findIndex(i=> i.name==this.activatedRoute.snapshot.params.name);
    if(fIndex!=-1){

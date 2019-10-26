@@ -46,31 +46,7 @@
 					<!--====== ROOMS: HOTEL BOOKING ==========-->
 					<div class="tour_head1 hotel-book-room">
 						<h3>Photo Gallery</h3>
-						<img src="assets/images/gallery/t1.jpg" class="img-fluid" alt="">
-						<div id="myCarousel1" class="carousel slide" data-ride="carousel">
-							<!-- Indicators -->
-							<ol class="carousel-indicators carousel-indicators-1">
-								<li data-target="#myCarousel1" data-slide-to="0"><img src="assets/images/gallery/t1.jpg" alt="Tarkarli">
-								</li>
-								<li data-target="#myCarousel1" data-slide-to="1"><img src="assets/images/gallery/t2.jpg" alt="Tarkarli">
-								</li>
-								<li data-target="#myCarousel1" data-slide-to="2"><img src="assets/images/gallery/t3.jpg" alt="Tarkarli">
-								</li>
-								<li data-target="#myCarousel1" data-slide-to="3"><img src="assets/images/gallery/t4.jpg" alt="Tarkarli">
-								</li>
-								<li data-target="#myCarousel1" data-slide-to="4"><img src="assets/images/gallery/t5.jpg" alt="Tarkarli">
-								</li>
-								<li data-target="#myCarousel1" data-slide-to="5"><img src="assets/images/gallery/s6.jpg" alt="Tarkarli">
-								</li>
-								<li data-target="#myCarousel1" data-slide-to="6"><img src="assets/images/gallery/s7.jpg" alt="Tarkarli">
-								</li>
-								<li data-target="#myCarousel1" data-slide-to="7"><img src="assets/images/gallery/s8.jpg" alt="Tarkarli">
-								</li>
-								<li data-target="#myCarousel1" data-slide-to="8"><img src="assets/images/gallery/s9.jpg" alt="Tarkarli">
-								</li>
-							</ol>
-						
-									</div>
+						<ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
 					</div>
 					<!--====== TOUR LOCATION ==========-->
 					<div class="tour_head1 tout-map map-container">
@@ -271,13 +247,11 @@
 					<!--====== PACKAGE SHARE ==========-->
 					<div class="tour_right head_right tour_social tour-ri-com">
 						<h3>Share This Package</h3>
-						<ul>
-							<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a> </li>
-							<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a> </li>
-							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a> </li>
-							<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a> </li>
-							<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a> </li>
-						</ul>
+						<share-buttons [theme]="'circles-dark'"
+ [include]="['facebook','twitter','whatsapp','linkedin','pinterest','messenger','email','copy']"
+ [size]="-4"
+ [show]="4"
+></share-buttons>
 					</div>
 					<!--====== HELP PACKAGE ==========-->
 					<div class="tour_right head_right tour_help tour-ri-com">

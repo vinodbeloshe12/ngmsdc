@@ -1,0 +1,6 @@
+@import '~@ngx-share/button/themes/default/default-theme';
+@import '~@ngx-share/button/themes/circles/circles-dark-theme';
+
+share-buttons {
+    padding: 6px;
+}
