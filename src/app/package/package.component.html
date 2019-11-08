@@ -2,15 +2,15 @@
 <section>
 		<div class="rows inner_banner inner_banner_4">
 			<div class="container">
-				<h2><span>{{package.location}} -</span> {{package.name}} Package</h2>
+				<h2><span>{{package.name}} -</span>  {{package.type}} </h2>
 				<ul>
 					<li><a href="/" class="bread-acti">Home</a></li>
                     <li><i class="fa fa-angle-right" aria-hidden="true"></i> </li>
-					<li><a href="/" class="bread-acti">Packages</a></li>
+					<li><a href="/" class="bread-acti">{{package.type}}</a></li>
                	<li><i class="fa fa-angle-right" aria-hidden="true"></i> </li>
-					<li>{{package.name}}					</li>
+					<li>{{package.title}}					</li>
 				</ul>
-				<p>Book travel packages and enjoy your holidays with distinctive experience</p>
+				<p>{{package.subtitle}}</p>
 			</div>
 		</div>
 	</section>
@@ -21,27 +21,26 @@
 				<div class="banner_book_1">
 					<ul>
 						<li class="dl1">Location : {{package.location}}</li>
-						<li class="dl2">Price : {{package.price}}</li>
-						<li class="dl3">Duration : {{package.duration}}</li>
-						<li class="dl4"><a routerLink="/booknow">Book Now</a> </li>
+						<li *ngIf="package.price!=0" class="dl2">Price : {{package.price}}</li>
+						<li *ngIf="package.duration" class="dl3">Duration : {{package.duration}}</li>
+						<li class="dl4 pull-right"><a routerLink="/booknow">Book Now</a> </li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!--====== TOUR DETAILS ==========-->
-	<section>
+	<section *ngIf="package">
 		<div class="rows inn-page-bg com-colo">
 			<div class="container inn-page-con-bg tb-space">
 				<div class="col-md-9">
 					<!--====== TOUR TITLE ==========-->
 					<div class="tour_head">
-						<h2>The Best of  {{package.location}}<span class="tour_star"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></span><span class="tour_rat">4.5</span></h2> </div>
+						<h2>The Best of  {{package.title}}<span class="tour_star"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></span><span class="tour_rat">4.5</span></h2> </div>
 					<!--====== TOUR DESCRIPTION ==========-->
 					<div class="tour_head1">
 						<h3>Description</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-						<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+					<p [innerHtml]="package.description"></p>	
 					</div>
 					<!--====== ROOMS: HOTEL BOOKING ==========-->
 					<div class="tour_head1 hotel-book-room">
