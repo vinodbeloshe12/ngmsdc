@@ -1,46 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HomeService } from '../services/home.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  homeData: any = {};
+  constructor(private router: Router, private homeService: HomeService) { }
 
-  constructor(private router:Router) { }
-packages=[{
-  "name":"Economy",
-  "duration":"2 Nights/ 3 Days",
-  "location":"Tarkarli, Malvan",
-  "price":"4,999 INR",
-  "offer":"assets/images/band.png",
-  "image":"assets/images/t5.png"
-}
-,{
-  "name":"Deluxe",
-  "duration":"4 Nights/ 5 Days",
-  "location":"Tarkarli, Malvan",
-  "price":"9,999 INR",
-  "offer":"assets/images/band1.png",
-  "image":"assets/images/t1.png"
-}
-,{
-  "name":"Ultimate",
-  "duration":"5 Nights/ 6 Days",
-  "location":"Sindhudurga",
-  "price":"12,999 INR",
-  "offer":"",
-  "image":"assets/images/t2.png"
-
-}
-]
   ngOnInit() {
+    this.getHome();
   }
 
-  changeRoute(packageDetail){
-    localStorage.setItem("selectedPackage",JSON.stringify(packageDetail));
-    // this.router.navigate(['package'])
-    this.router.navigate(['package', packageDetail.name])
+  getHome() {
+    this.homeService.getHome().subscribe((res: any) => {
+      if (res.value) {
+        this.homeData = res;
+        console.log("homepage data", this.homeData);
+      }
+    })
+  }
+
+  changeRoute(packageDetail) {
+    this.router.navigate(['package', packageDetail.web_title])
   }
 
 }
