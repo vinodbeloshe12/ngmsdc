@@ -5291,7 +5291,15 @@ textarea {
   color: #fff;
 }
 
-.db-2-main {}
+.db-2-main h4 button {
+  float: right;
+  background: #1aa5d8;
+  box-shadow: 2px 1px 2px 0px #000000;
+  padding: 6px 10px;
+  margin: -6px 0px;
+  border: none;
+  font-size: 16px;
+}
 
 .db-2-main-com {
   padding: 20px;
@@ -5313,8 +5321,8 @@ textarea {
 }
 
 .db-2-main-com span {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 16px;
+  /* font-weight: 600; */
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -5355,7 +5363,7 @@ textarea {
   font-size: 12px !important;
   background: #3e8e41;
   color: #fff;
-  padding: 2px 4px;
+  padding: 4px 6px;
   border-radius: 3px;
   text-transform: lowercase;
   margin-left: 5px;
@@ -5369,7 +5377,7 @@ textarea {
   font-size: 12px !important;
   background: #f4a321;
   color: #fff;
-  padding: 2px 4px;
+  padding: 4px 6px;
   border-radius: 3px;
   text-transform: lowercase;
   margin-left: 5px;
@@ -5415,13 +5423,24 @@ textarea {
 
 .db2-form-com form input {
   border: 1px solid #e4e4e4;
-  line-height: 44px;
-  padding: 0px 25px;
+  line-height: 35px;
+  padding: 0px 10px;
+  background: #fff;
+}
+
+.db2-form-com form select {
+  border: 1px solid #e4e4e4;
+  line-height: 35px;
+  padding: 0px 10px;
+  height: 4rem;
   background: #fff;
 }
 
 .db2-form-com form input[type="submit"] {
-  padding: 0px;
+  padding: 0px 30px;
+  /* width: auto; */
+  background: linear-gradient(to bottom, #fa6d72, #f45d5d) !important;
+  border-radius: 5px;
 }
 
 .db2-form-com form label {
@@ -5540,8 +5559,8 @@ textarea {
   float: left;
   height: 3rem;
   line-height: 3rem;
-  height: 45px;
-  padding: 10px 25px;
+  height: 3.6rem;
+  padding: 4px 20px;
   background: #14addb;
   color: #fff;
 }

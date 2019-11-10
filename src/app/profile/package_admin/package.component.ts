@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PackageService } from 'src/app/services/package.service';
 
 @Component({
   selector: 'app-package',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./package.component.css']
 })
 export class PackageComponent implements OnInit {
-
-  constructor() { }
+  packages: any = [];
+  packageData: any = {};
+  isFormOpen: boolean = false;
+  constructor(private packageService: PackageService) { }
 
   ngOnInit() {
+    this.getAllPAckages();
+  }
+
+  getAllPAckages() {
+    this.packageService.getAllPackages().subscribe((res: any) => {
+      if (res.value) {
+        this.packages = res.data
+      }
+    })
+  }
+
+  submitPackage(data) {
+    console.log("data", data);
   }
 
 }

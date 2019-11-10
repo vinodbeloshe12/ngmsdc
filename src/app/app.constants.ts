@@ -1,5 +1,7 @@
 import { HttpHeaders } from "@angular/common/http";
 
+// export const apiUrl = "https://malvantarkarlitourplanner.com/msdc_backend/index.php/API/";
+// export const imgUrl = "https://malvantarkarlitourplanner.com/msdc_backend/uploads/";
 export const apiUrl = "http://localhost/msdc_backend/index.php/API/";
 export const imgUrl = "http://localhost/msdc_backend/uploads/";
 
