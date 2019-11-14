@@ -10,10 +10,11 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'booknow', component: BookingComponent },
   // { path: 'package/:name', component: PackageComponent },
- 
+
   { path: 'package/:name', loadChildren: () => import('./package/package.module').then(m => m.PackageModule) },
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
   { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
+  { path: 'hotels', loadChildren: () => import('./hotel/hotel.module').then(m => m.HotelModule) },
 ];
 
 

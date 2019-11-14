@@ -41,79 +41,104 @@
 
 		        <!-- form start -->
 		        <div *ngIf="isFormOpen" class="db-2-main-com db2-form-pay db2-form-com">
-		          <form class="col s12">
+		          <form (ngSubmit)="submitPackage(packageData)" #packageForm="ngForm" class="col s12">
 		            <div class="row">
 		              <div class="input-field col s12">
 		                <label>Title</label>
-		                <input type="text" name="title" [(ngModel)]="packageData.title" placeholder="Enter Title"
-		                  class="validate">
+		                <input type="text" required name="title" #title="ngModel" [(ngModel)]="packageData.title"
+		                  placeholder="Enter Title" class="validate">
+		                <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+		                  Title is required
+		                </div>
 		              </div>
 		            </div>
 		            <div class="row">
 		              <div class="input-field col s12">
 		                <label>Subtitle</label>
-		                <input type="text" name="subtitle" [(ngModel)]="packageData.subtitle" placeholder="Enter Subtitle"
-		                  class="validate">
+		                <input type="text" #subtitle="ngModel" required name="subtitle" [(ngModel)]="packageData.subtitle"
+		                  placeholder="Enter Subtitle" class="validate">
+		                <div [hidden]="subtitle.valid || subtitle.pristine" class="alert alert-danger">
+		                  Subtitle is required
+		                </div>
 		              </div>
 		            </div>
 		            <div class="row">
 		              <div class="input-field col s12 m6">
 		                <label>Web URL</label>
-		                <input type="text" name="url" [(ngModel)]="packageData.web_title" placeholder="Enter_Display_Web_URL"
-		                  class="validate">
+		                <input type="text" #url="ngModel" required name="url" [(ngModel)]="packageData.web_title"
+		                  placeholder="Enter_Display_Web_URL" class="validate">
+		                <div [hidden]="url.valid || url.pristine" class="alert alert-danger">
+		                  Web URL is required
+		                </div>
 		              </div>
 		              <div class="input-field col s12 m6">
 		                <label>Name</label>
 		                <input type="text" name="name" [(ngModel)]="packageData.name" placeholder="Enter Name"
 		                  class="validate">
+
 		              </div>
 		            </div>
 		            <div class="row">
 		              <div class="input-field col s12 m6">
 		                <label>Type</label>
-		                <select name="type" [(ngModel)]="packageData.type">
+		                <select name="type" #type="ngModel" required [(ngModel)]="packageData.type">
 		                  <option value="" selected>Select Type</option>
 		                  <option value="1">Package</option>
 		                  <option value="2">Sight Seeing</option>
 		                </select>
+		                <div [hidden]="type.valid || type.pristine" class="alert alert-danger">
+		                  Type is required
+		                </div>
 		              </div>
 		              <div class="input-field col s12 m6">
 		                <label>Location</label>
-		                <input type="text" name="location" [(ngModel)]="packageData.location" placeholder="Enter Location"
-		                  class="validate">
+		                <input type="text" required #location="ngModel" name="location" [(ngModel)]="packageData.location"
+		                  placeholder="Enter Location" class="validate">
+		                <div [hidden]="location.valid || location.pristine" class="alert alert-danger">
+		                  Location is required
+		                </div>
 		              </div>
 		            </div>
 
 		            <div class="row">
 		              <div class="input-field col s12 m6">
 		                <label>Status</label>
-		                <select name="status" [(ngModel)]="packageData.status">
+		                <select #status="ngModel" name="status" required [(ngModel)]="packageData.status">
 		                  <option value="" selected>Select Status</option>
 		                  <option value="1">Active</option>
 		                  <option value="0">Non-Active</option>
 		                </select>
+		                <div [hidden]="status.valid || status.pristine" class="alert alert-danger">
+		                  Status is required
+		                </div>
 		              </div>
 		            </div>
 
 		            <div class="row db-file-upload">
 		              <div class="file-field input-field">
 		                <div class="db-up-btn"> <span>Banner</span>
-		                  <input type="file"> </div>
+		                  <input (change)="readUrl($event,1)" type="file"> </div>
 		                <div class="file-path-wrapper">
-		                  <input class="file-path validate" type="text"> </div>
+		                  <input class="file-path validate" name="bannerimage" [(ngModel)]="packageData.banner_image"
+		                    type="text"> </div>
 		              </div>
+		              <img *ngIf="banner" width="300" [src]="banner">
 		            </div>
 		            <div class="row db-file-upload">
 		              <div class="file-field input-field">
 		                <div class="db-up-btn"> <span>Image</span>
-		                  <input type="file"> </div>
+		                  <input type="file" (change)="readUrl($event,2)"> </div>
 		                <div class="file-path-wrapper">
-		                  <input class="file-path validate" type="text"> </div>
+		                  <input class="file-path validate" name="image" [(ngModel)]="packageData.image" type="text"> </div>
+		                <img *ngIf="image" width="300" [src]="image">
 		              </div>
 		            </div>
 		            <div class="row">
 		              <div class="input-field col s12">
-		                <input type="submit" value="SUBMIT" class="waves-effect waves-light full-btn"> </div>
+		                <!-- <input type="submit" value="SUBMIT" class="waves-effect waves-light full-btn"> -->
+		                <button type="submit" class="waves-effect waves-light full-btn"
+		                  [disabled]="!packageForm.form.valid">Submit</button>
+		              </div>
 		            </div>
 		          </form>
 		        </div>

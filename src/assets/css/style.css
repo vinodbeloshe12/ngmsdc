@@ -73,8 +73,8 @@ th {
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
-  background: #f4364f;
-  background: linear-gradient(to bottom, #f4364f, #dc2039);
+  background: #ee4832;
+  background: linear-gradient(to bottom, #ee4832, #dc2039);
 }
 
 .link-btn:hover {
@@ -260,7 +260,7 @@ li {
 }
 
 .spe-title h2 span {
-  color: #f4364f;
+  color: #ee4832;
   font-size: 44px;
   font-weight: 600;
   font-family: 'Quicksand', sans-serif;
@@ -853,7 +853,7 @@ section.c3 {
 .ho-hot-pri {
   font-size: 38px;
   font-weight: 600;
-  color: #f4364f;
+  color: #ee4832;
   float: right;
 }
 
@@ -1828,8 +1828,8 @@ footer ul li a {
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   font-weight: 700;
-  background: #f4364f;
-  background: linear-gradient(to bottom, #f4364f, #dc2039);
+  background: #ee4832;
+  background: linear-gradient(to bottom, #ee4832, #dc2039);
 }
 
 .disco a:hover {
@@ -1958,7 +1958,7 @@ footer ul li a {
 }
 
 .inner_banner h2 {
-  color: #f4364f;
+  color: #ee4832;
   font-size: 32px;
   display: inline-block;
   font-weight: 600;
@@ -2190,8 +2190,8 @@ footer ul li a {
 
 .banner_book_1 ul li a {
   background: #1aa5d8;
-  background: #f4364f;
-  background: linear-gradient(to bottom, #f4364f, #dc2039);
+  background: #ee4832;
+  background: linear-gradient(to bottom, #ee4832, #dc2039);
   display: block;
   text-align: center;
   color: #fff;
@@ -3744,6 +3744,11 @@ textarea {
   display: block;
 }
 
+.all-hot-bg {
+  background: url(../../assets/images/consul-bg-2.jpg) no-repeat center top #e6e6e6;
+  background-attachment: fixed;
+}
+
 
 .hot-page2-alp::before {
   content: '';
@@ -4061,7 +4066,7 @@ textarea {
 .hot-list-p3-2 {
   font-size: 32px;
   font-weight: 600;
-  color: #f4364f;
+  color: #ee4832;
   padding: 10px 0px;
 }
 
@@ -4332,6 +4337,8 @@ textarea {
 
 .hot-page2-hli-1 img {
   width: 100%;
+  height: 173px;
+  /* comment after integration */
 }
 
 .hot-page2-hli-3 {
@@ -4870,8 +4877,8 @@ textarea {
 .tourz-sear-btn {
   height: 45px;
   line-height: 45px;
-  background: #f4364f;
-  background: linear-gradient(to bottom, #f4364f, #dc2039);
+  background: #ee4832;
+  background: linear-gradient(to bottom, #ee4832, #dc2039);
   outline: none;
   font-size: 16px;
   display: block !important;
@@ -4925,8 +4932,8 @@ textarea {
 .tourz-hom-ser ul li a:hover {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
-  background: #f4364f;
-  background: linear-gradient(to bottom, #f4364f, #dc2039);
+  background: #ee4832;
+  background: linear-gradient(to bottom, #ee4832, #dc2039);
   border: 1px solid #d41e36;
 }
 
@@ -6412,8 +6419,8 @@ a.ui-button:active,
 .wed-logo a {}
 
 .wed-logo a img {
-  width: 250px;
-  padding: 7px 0px;
+  width: 155px;
+  padding: 0px 0px;
 }
 
 .wed-menu {
@@ -7137,7 +7144,7 @@ a.ui-button:active,
 }
 
 .log-in-btn {
-  background: #f4364f;
+  background: #ee4832;
   color: #fff;
   padding: 2px 10px;
   font-weight: 600;
@@ -8536,8 +8543,8 @@ a.ui-button:active,
 }
 
 .ed-com-t1-right ul li:nth-child(1) a {
-  background: #f4364f;
-  background: linear-gradient(to bottom, #f4364f, #dc2039);
+  background: #ee4832;
+  background: linear-gradient(to bottom, #ee4832, #dc2039);
 }
 
 .ed-com-t1-right ul li:nth-child(2) a {
@@ -8617,7 +8624,7 @@ a.ui-button:active,
 }
 
 .ol-2 {
-  background: #f4364f;
+  background: #ee4832;
   padding: 5px 3px 3px 3px;
   position: relative;
   /* top: -18px;
@@ -8689,7 +8696,7 @@ a.ui-button:active,
   width: 60px;
   height: 60px;
   vertical-align: sub;
-  background: #f4364f;
+  background: #ee4832;
   /* border: 1px solid #a59d9d;
     */
 }
@@ -8737,7 +8744,7 @@ a.ui-button:active,
   font-size: 45px;
   display: block;
   text-transform: capitalize;
-  color: #f4364f;
+  color: #ee4832;
   font-weight: 600;
   font-family: 'Quicksand', sans-serif;
 }
@@ -8761,7 +8768,7 @@ a.ui-button:active,
   text-transform: uppercase;
   width: 300px;
   height: 300px;
-  background: #f4364f;
+  background: #ee4832;
   border-radius: 50%;
   padding: 50px;
   text-align: center;
@@ -8887,7 +8894,7 @@ a.ui-button:active,
 }
 
 .slid-cap a {
-  background: #f4364f;
+  background: #ee4832;
   padding: 7px 25px;
   color: #fff;
   text-transform: uppercase;
@@ -9092,10 +9099,20 @@ input {
 .trav-list-bod {}
 
 .trav-list-bod a h3 {
-  color: #f4364f;
+  color: #ee4832;
 }
 
 .trav-list-bod p {
   font-size: 13px;
   line-height: 20px;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 3px solid #42A948;
+  /* green */
+}
+
+.ng-invalid:not(form) {
+  border-left: 3px solid #a94442;
 }

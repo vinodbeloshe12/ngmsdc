@@ -31,63 +31,48 @@ export class PackageComponent implements OnInit {
     "price": "4,999 INR",
     "offer": "assets/images/band.png",
     "image": "assets/images/t5.png"
-  }, {
-    "name": "Deluxe",
-    "duration": "4 Nights/ 5 Days",
-    "location": "Tarkarli, Malvan",
-    "price": "9,999 INR",
-    "offer": "assets/images/band1.png",
-    "image": "assets/images/t1.png"
-  }, {
-    "name": "Ultimate",
-    "duration": "5 Nights/ 6 Days",
-    "location": "Sindhudurga",
-    "price": "12,999 INR",
-    "offer": "",
-    "image": "assets/images/t2.png"
-
   }];
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private packageService: PackageService) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private packageService: PackageService) { }
 
   ngOnInit() {
     this.galleryOptions = [{
-        width: '100%',
-        height: '450px',
-        thumbnailsColumns: 6,
-        imageAnimation: NgxGalleryAnimation.Slide
-      },
-      // max-width 800
-      {
-        breakpoint: 800,
-        width: '100%',
-        height: '300px',
-        imagePercent: 80,
-        thumbnailsPercent: 20,
-        thumbnailsMargin: 20,
-        thumbnailMargin: 20
-      },
-      // max-width 400
-      {
-        breakpoint: 400,
-        preview: false
-      }
+      width: '100%',
+      height: '450px',
+      thumbnailsColumns: 6,
+      imageAnimation: NgxGalleryAnimation.Slide
+    },
+    // max-width 800
+    {
+      breakpoint: 800,
+      width: '100%',
+      height: '300px',
+      imagePercent: 80,
+      thumbnailsPercent: 20,
+      thumbnailsMargin: 20,
+      thumbnailMargin: 20
+    },
+    // max-width 400
+    {
+      breakpoint: 400,
+      preview: false
+    }
     ];
 
     this.galleryImages = [{
-        small: 'assets/images/gallery/t1.jpg',
-        medium: 'assets/images/gallery/t1.jpg',
-        big: 'assets/images/gallery/t1.jpg'
-      },
-      {
-        small: 'assets/images/gallery/t2.jpg',
-        medium: 'assets/images/gallery/t2.jpg',
-        big: 'assets/images/gallery/t2.jpg'
-      },
-      {
-        small: 'assets/images/gallery/t3.jpg',
-        medium: 'assets/images/gallery/t3.jpg',
-        big: 'assets/images/gallery/t3.jpg'
-      }
+      small: 'assets/images/gallery/t1.jpg',
+      medium: 'assets/images/gallery/t1.jpg',
+      big: 'assets/images/gallery/t1.jpg'
+    },
+    {
+      small: 'assets/images/gallery/t2.jpg',
+      medium: 'assets/images/gallery/t2.jpg',
+      big: 'assets/images/gallery/t2.jpg'
+    },
+    {
+      small: 'assets/images/gallery/t3.jpg',
+      medium: 'assets/images/gallery/t3.jpg',
+      big: 'assets/images/gallery/t3.jpg'
+    }
     ];
 
     console.log("params", this.activatedRoute.snapshot.params.name);
@@ -106,8 +91,8 @@ export class PackageComponent implements OnInit {
 
   getPackageDetails(name) {
     this.packageService.getPackageDetails(name).subscribe((res: any) => {
-      console.log("res",res)
-      this.package=res.details;
+      console.log("res", res)
+      this.package = res.details;
     });
   }
 

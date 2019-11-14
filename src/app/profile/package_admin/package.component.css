@@ -1,0 +1,16 @@
+.ng-invalid:not(form) {
+  border-left: 3px solid #a94442;
+}
+
+.alert {
+  padding: 5px 0px;
+  margin-bottom: 0px;
+  border: none;
+  border-radius: 0px;
+}
+
+.alert-danger {
+  color: #a94442;
+  background-color: transparent;
+  border: none;
+}
