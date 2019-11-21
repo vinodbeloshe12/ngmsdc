@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PackageService } from 'src/app/services/package.service';
+declare var $: any
 
 @Component({
   selector: 'app-package',

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgxSummernoteModule } from 'ngx-summernote';
 
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
@@ -9,14 +10,16 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { EventComponent } from './event_admin/event.component';
 import { HotelComponent } from './hotel_admin/hotel.component';
 import { PaymentComponent } from './payment_admin/payment.component';
+import { TouristPointComponent } from './tourist-point/tourist-point.component';
 
 
 @NgModule({
-  declarations: [ProfileComponent, PackageComponent, SidebarComponent, HotelComponent, EventComponent, PaymentComponent],
+  declarations: [ProfileComponent, PackageComponent, SidebarComponent, HotelComponent, EventComponent, PaymentComponent, TouristPointComponent],
   imports: [
     CommonModule,
     FormsModule,
-    ProfileRoutingModule
+    ProfileRoutingModule,
+    NgxSummernoteModule
   ]
 })
 export class ProfileModule { }

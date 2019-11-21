@@ -1,0 +1,166 @@
+<section>
+  <div class="db">
+    <app-sidebar></app-sidebar>
+
+    <!--CENTER SECTION-->
+    <div class="db-2">
+      <div class="db-2-com db-2-main">
+        <h4>Tourist Point
+          <button (click)="isFormOpen=!isFormOpen;packageData={}">{{isFormOpen?'Close':'Add New'}} <i
+              _ngcontent-kiv-c1="" aria-hidden="true" [ngClass]="isFormOpen?'fa-times':'fa-plus'"
+              class="fa"></i></button>
+        </h4>
+        <div *ngIf="!isFormOpen" class="db-2-main-com db-2-main-com-table">
+          <p *ngIf="touristPoints && touristPoints.length>=0">
+            Data not found
+          </p>
+          <table *ngIf="touristPoints && touristPoints.length>0" class="responsive-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Location</th>
+                <th>More</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of touristPoints">
+                <td>{{data.id}}</td>
+                <td>{{data.title}}</td>
+                <td>{{data.Location}}</td>
+                <td><a target="_blank" routerLink="/sightseeing/{{data.web_title}}" class="db-done">view more</a>
+                </td>
+                <td>
+                  <a><i class="fa fa-pencil db-done" aria-hidden="true"></i></a>
+                  <a> <i class="fa fa-times db-not-done" aria-hidden="true"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!-- form start -->
+        <div *ngIf="isFormOpen" class="db-2-main-com db2-form-pay db2-form-com">
+          <form (ngSubmit)="submitTouristPoint(touristPointData)" #toursitPointForm="ngForm" class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <label>Title</label>
+                <input type="text" required name="title" #title="ngModel" [(ngModel)]="touristPointData.title"
+                  placeholder="Enter Title" class="validate">
+                <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+                  Title is required
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <label>Description</label>
+                <div name="description" #description="ngModel" [(ngModel)]="touristPointData.description"
+                  [ngxSummernote]>
+                </div>
+                <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+                  Description is required
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12 m6">
+                <label>Web URL</label>
+                <input type="text" #url="ngModel" required name="url" [(ngModel)]="touristPointData.web_title"
+                  placeholder="Enter_Display_Web_URL" class="validate">
+                <div [hidden]="url.valid || url.pristine" class="alert alert-danger">
+                  Web URL is required
+                </div>
+              </div>
+              <div class="input-field col s12 m6">
+                <label>Status</label>
+                <select #status="ngModel" name="status" required [(ngModel)]="touristPointData.status">
+                  <option value="" selected>Select Status</option>
+                  <option value="1">Active</option>
+                  <option value="0">Non-Active</option>
+                </select>
+                <div [hidden]="status.valid || status.pristine" class="alert alert-danger">
+                  Status is required
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <label>Meta Title
+                  ({{touristPointData.meta_title?(160 - touristPointData.meta_title.length)+' left':'Max. 160 chars'}})</label>
+                <textarea maxlength="160" required name="meta_title" #meta_title="ngModel"
+                  [(ngModel)]="touristPointData.meta_title" placeholder="Enter Meta Title" class="validate"></textarea>
+
+                <div [hidden]="meta_title.valid || meta_title.pristine" class="alert alert-danger">
+                  Meta Title is required
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <label>Meta Keywords
+                  ({{touristPointData.meta_keywords?(160 - touristPointData.meta_keywords.length)+' left':'Max. 160 chars'}})</label>
+                <textarea maxlength="160" required name="meta_keywords" #meta_keywords="ngModel"
+                  [(ngModel)]="touristPointData.meta_keywords" placeholder="Enter Meta Keywords"
+                  class="validate"></textarea>
+                <div [hidden]="meta_keywords.valid || meta_keywords.pristine" class="alert alert-danger">
+                  Meta Keywords is required
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <label>Meta Description
+                  ({{touristPointData.meta_description?(160 - touristPointData.meta_description.length)+' left':'Max. 160 chars'}})</label>
+                <textarea maxlength="160" required name="meta_description" #meta_description="ngModel"
+                  [(ngModel)]="touristPointData.meta_description" placeholder="Enter Meta Description"
+                  class="validate"></textarea>
+
+                <div [hidden]="meta_description.valid || meta_description.pristine" class="alert alert-danger">
+                  Meta Description is required
+                </div>
+              </div>
+            </div>
+
+            <div class="row db-file-upload">
+              <div class="file-field input-field">
+                <div class="db-up-btn"> <span>Banner</span>
+                  <input (change)="readUrl($event,1)" type="file"> </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" name="bannerimage" [(ngModel)]="touristPointData.banner_image"
+                    type="text"> </div>
+              </div>
+              <img *ngIf="banner" width="300" [src]="banner">
+            </div>
+            <div class="row db-file-upload">
+              <div class="file-field input-field">
+                <div class="db-up-btn"> <span>Image</span>
+                  <input type="file" (change)="readUrl($event,2)"> </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" name="image" [(ngModel)]="touristPointData.image" type="text">
+                </div>
+                <img *ngIf="image" width="300" [src]="image">
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <!-- <input type="submit" value="SUBMIT" class="waves-effect waves-light full-btn"> -->
+                <button type="submit" class="waves-effect waves-light full-btn"
+                  [disabled]="!toursitPointForm.form.valid">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- form end -->
+      </div>
+    </div>
+
+
+  </div>
+</section>

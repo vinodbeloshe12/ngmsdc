@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
   { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
   { path: 'hotels', loadChildren: () => import('./hotel/hotel.module').then(m => m.HotelModule) },
+  { path: 'tourist_point', loadChildren: () => import('./profile/tourist-point/tourist-point.module').then(m => m.TouristPointModule) },
 ];
 
 

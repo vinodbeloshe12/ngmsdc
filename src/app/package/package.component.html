@@ -36,62 +36,60 @@
       <div class="col-md-9">
         <!--====== TOUR TITLE ==========-->
         <div class="tour_head">
-          <h2>The Best of {{package.title}}<span class="tour_star"><i class="fa fa-star" aria-hidden="true"></i><i
+          <h2>{{package.title}}<span class="tour_star"><i class="fa fa-star" aria-hidden="true"></i><i
                 class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
                 class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o"
                 aria-hidden="true"></i></span><span class="tour_rat">4.5</span></h2>
         </div>
-        <!--====== TOUR DESCRIPTION ==========-->
-        <div class="tour_head1">
-          <h3>Description</h3>
-          <p [innerHtml]="package.description"></p>
-        </div>
-        <!--====== ROOMS: HOTEL BOOKING ==========-->
-        <!-- <div class="tour_head1 hotel-book-room">
-						<h3>Photo Gallery</h3>
-						<ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
-					</div> -->
-        <!--====== TOUR LOCATION ==========-->
-        <!-- <div class="tour_head1 tout-map map-container">
-						<h3>Location</h3>
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.356287750112!2d73.46748531394525!3d16.04699078889468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc00298a9d7a7d7%3A0xc2a82b9579885755!2sDive%20Vengurla%20-%20Diving%20with%20yogesh%20masurkar!5e0!3m2!1sen!2sin!4v1571768588059!5m2!1sen!2sin" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-					</div> -->
+
         <!--====== ABOUT THE TOUR ==========-->
         <div class="tour_head1">
           <h3>About The Tour</h3>
           <table>
             <tr>
-              <th>Places covered</th>
+              <th>Activities</th>
               <th class="event-res">Inclusions</th>
-              <th class="event-res">Exclusions</th>
-              <th>Event Date</th>
+              <th class="event-res">Things to carry</th>
+              <!-- <th>Event Date</th> -->
             </tr>
             <tr>
               <td>Rio De Janeiro ,Brazil</td>
               <td class="event-res">Accommodation</td>
               <td class="event-res">Return Airfare & Taxes</td>
-              <td>Nov 12, 2017</td>
+
             </tr>
             <tr>
               <td>Iguassu Falls </td>
               <td class="event-res">8 Breakfast, 3 Dinners</td>
               <td class="event-res">Arrival & Departure transfers</td>
-              <td>Nov 14, 2017</td>
+
             </tr>
             <tr>
               <td>Peru,Lima </td>
               <td class="event-res">First-class Travel</td>
               <td class="event-res">travel insurance</td>
-              <td>Nov 16, 2017</td>
+
             </tr>
-            <tr>
-              <td>Cusco & Buenos Aires </td>
-              <td class="event-res">Free Sightseeing</td>
-              <td class="event-res">Service tax of 4.50%</td>
-              <td>Nov 18, 2017</td>
-            </tr>
+
           </table>
         </div>
+
+        <!--====== TOUR DESCRIPTION ==========-->
+        <!-- <div class="tour_head1">
+          <h3>Description</h3>
+          <p [innerHtml]="package.description"></p>
+        </div> -->
+        <!--====== ROOMS: HOTEL BOOKING ==========-->
+        <div class="tour_head1 hotel-book-room">
+          <h3>Photo Gallery</h3>
+          <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+        </div>
+        <!--====== TOUR LOCATION ==========-->
+        <!-- <div class="tour_head1 tout-map map-container">
+						<h3>Location</h3>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.356287750112!2d73.46748531394525!3d16.04699078889468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc00298a9d7a7d7%3A0xc2a82b9579885755!2sDive%20Vengurla%20-%20Diving%20with%20yogesh%20masurkar!5e0!3m2!1sen!2sin!4v1571768588059!5m2!1sen!2sin" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+					</div> -->
+
         <!--====== DURATION ==========-->
         <!-- <div class="tour_head1 l-info-pack-days days">
           <h3>Detailed Day Wise Itinerary</h3>

@@ -61,7 +61,8 @@ export class PackageComponent implements OnInit {
     this.galleryImages = [{
       small: 'assets/images/gallery/t1.jpg',
       medium: 'assets/images/gallery/t1.jpg',
-      big: 'assets/images/gallery/t1.jpg'
+      big: 'assets/images/gallery/t1.jpg',
+      description: 'test'
     },
     {
       small: 'assets/images/gallery/t2.jpg',

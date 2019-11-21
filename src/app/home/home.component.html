@@ -77,24 +77,25 @@
           <!-- TOUR TITLE & ICONS -->
           <div class="b_pack rows">
             <!-- TOUR TITLE -->
-            <div class="col-md-8 col-sm-8">
-              <h4><a href="tour-details.html" title="{{data.name}}">{{data.name}}<span
-                    class="v_pl_name">({{data.price}})</span></a></h4>
+            <div class="col-md-9 col-sm-9">
+              <h4><a (click)="changeRoute(data)" title="{{data.title}}">{{data.name}}({{data.duration}})<span
+                    class="v_pl_name">-{{data.location}}</span></a></h4>
             </div>
             <!-- TOUR ICONS -->
-            <div class="col-md-4 col-sm-4 pack_icon">
+            <div class="col-md-3 col-sm-3 pack_icon">
               <ul>
                 <li>
-                  <a href="#"><img src="assets/images/clock.png" alt="Date" title="Tour Timing" /> </a>
+                  <a href="#"><img src="assets/images/clock.png" alt="{{data.duration}}" title="{{data.duration}}" />
+                  </a>
                 </li>
-                <li>
+                <!-- <li>
                   <a href="#"><img src="assets/images/info.png" alt="Details" title="View more details" /> </a>
+                </li> -->
+                <li>
+                  <a href="#"><img src="assets/images/price.png" alt="₹{{data.price}}" title="₹{{data.price}}" /> </a>
                 </li>
                 <li>
-                  <a href="#"><img src="assets/images/price.png" alt="Price" title="Price" /> </a>
-                </li>
-                <li>
-                  <a href="#"><img src="assets/images/map.png" alt="Location" title="Location" /> </a>
+                  <a href="#"><img src="assets/images/map.png" alt="{{data.location}}" title="{{data.location}}" /> </a>
                 </li>
               </ul>
             </div>
@@ -127,7 +128,7 @@
             <div class="tour-mig-lc-img"> <img src="{{data.image}}" alt=""> </div>
             <div class="tour-mig-lc-con">
               <h5>{{data.name}}</h5>
-              <p><span>6 Packages</span> Starting from 2,000 INR</p>
+              <p><span>6 Packages</span> Starting from <i class='fa fa-inr' aria-hidden='true'></i>2,000 </p>
             </div>
           </div>
         </a>
@@ -138,7 +139,7 @@
             <div class="tour-mig-lc-img"> <img src="{{data.image}}" alt=""> </div>
             <div class="tour-mig-lc-con tour-mig-lc-con2">
               <h5>{{data.name}}</h5>
-              <p>Starting from {{data.price}} INR</p>
+              <p>Starting from <i class='fa fa-inr' aria-hidden='true'></i>{{data.price}} </p>
             </div>
           </div>
         </a>
@@ -166,15 +167,18 @@
       <!-- HOTEL GRID -->
       <div class="to-ho-hotel">
         <!-- HOTEL GRID -->
-        <div class="col-md-4">
+        <div class="col-md-4" routerLink="/hotels">
           <div class="to-ho-hotel-con">
-            <div class="to-ho-hotel-con-1">
-              <div class="hot-page2-hli-3"> <img src="assets/images/hci1.png" alt=""> </div>
-              <div class="hom-hot-av-tic"> Available Rooms: 42 </div> <img src="assets/images/gallery/s1.jpg" alt="">
-            </div>
+            <a routerLink="/hotels">
+              <div class="to-ho-hotel-con-1">
+                <div class="hot-page2-hli-3">
+                  <img src="assets/images/hci1.png" alt=""> </div>
+                <div class="hom-hot-av-tic"> Available Rooms: 42 </div> <img src="assets/images/gallery/s1.jpg" alt="">
+              </div>
+            </a>
             <div class="to-ho-hotel-con-23">
               <div class="to-ho-hotel-con-2">
-                <a href="hotel-details.html">
+                <a routerLink="/hotels">
                   <h4>GTC Grand Chola</h4>
                 </a>
               </div>
@@ -185,7 +189,8 @@
                         class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
                         class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
                   </li>
-                  <li><span class="ho-hot-pri-dis">₹720</span><span class="ho-hot-pri">₹420</span> </li>
+                  <li><span class="ho-hot-pri-dis"><i class="fa fa-inr" aria-hidden="true"></i>720</span><span
+                      class="ho-hot-pri"><i class="fa fa-inr" aria-hidden="true"></i>720</span> </li>
                 </ul>
               </div>
             </div>
@@ -194,13 +199,16 @@
         <!-- HOTEL GRID -->
         <div class="col-md-4">
           <div class="to-ho-hotel-con">
-            <div class="to-ho-hotel-con-1">
-              <div class="hot-page2-hli-3"> <img src="assets/images/hci1.png" alt=""> </div>
-              <div class="hom-hot-av-tic"> Available Rooms: 520 </div> <img src="assets/images/gallery/s2.jpg" alt="">
-            </div>
+            <a routerLink="/hotels">
+              <div class="to-ho-hotel-con-1">
+                <div class="hot-page2-hli-3">
+                  <img src="assets/images/hci1.png" alt=""> </div>
+                <div class="hom-hot-av-tic"> Available Rooms: 20 </div> <img src="assets/images/gallery/s2.jpg" alt="">
+              </div>
+            </a>
             <div class="to-ho-hotel-con-23">
               <div class="to-ho-hotel-con-2">
-                <a href="hotel-details.html">
+                <a routerLink="/hotels">
                   <h4>Taaj Grand Resorts</h4>
                 </a>
               </div>
@@ -211,7 +219,8 @@
                         class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
                         class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
                   </li>
-                  <li><span class="ho-hot-pri-dis">₹840</span><span class="ho-hot-pri">₹540</span> </li>
+                  <li><span class="ho-hot-pri-dis"><i class="fa fa-inr" aria-hidden="true"></i>840</span><span
+                      class="ho-hot-pri"><i class="fa fa-inr" aria-hidden="true"></i>840</span> </li>
                 </ul>
               </div>
             </div>
@@ -220,13 +229,16 @@
         <!-- HOTEL GRID -->
         <div class="col-md-4">
           <div class="to-ho-hotel-con">
-            <div class="to-ho-hotel-con-1">
-              <div class="hot-page2-hli-3"> <img src="assets/images/hci1.png" alt=""> </div>
-              <div class="hom-hot-av-tic"> Available Rooms: 92 </div> <img src="assets/images/gallery/s3.jpg" alt="">
-            </div>
+            <a routerLink="/hotels">
+              <div class="to-ho-hotel-con-1">
+                <div class="hot-page2-hli-3">
+                  <img src="assets/images/hci1.png" alt=""> </div>
+                <div class="hom-hot-av-tic"> Available Rooms: 19 </div> <img src="assets/images/gallery/s3.jpg" alt="">
+              </div>
+            </a>
             <div class="to-ho-hotel-con-23">
               <div class="to-ho-hotel-con-2">
-                <a href="hotel-details.html">
+                <a routerLink="/hotels">
                   <h4>Keep Grand Hotels</h4>
                 </a>
               </div>
@@ -237,7 +249,8 @@
                         class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
                         class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
                   </li>
-                  <li><span class="ho-hot-pri-dis">₹680</span><span class="ho-hot-pri">₹380</span> </li>
+                  <li><span class="ho-hot-pri-dis"><i class="fa fa-inr" aria-hidden="true"></i>680</span><span
+                      class="ho-hot-pri"><i class="fa fa-inr" aria-hidden="true"></i>680</span> </li>
                 </ul>
               </div>
             </div>
@@ -256,7 +269,7 @@
           <div class="offer-l"> <span class="ol-1"></span> <span class="ol-2"><i class="fa fa-star"></i><i
                 class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
                 class="fa fa-star"></i></span> <span class="ol-4">Standardized Budget Rooms</span> <span
-              class="ol-3"></span> <span class="ol-5">₹599/-</span>
+              class="ol-3"></span> <span class="ol-5"><i class="fa fa-inr" aria-hidden="true"></i>599/-</span>
             <ul>
               <li class="wow fadeInUp" data-wow-duration="0.5s">
                 <a href="#!" class="waves-effect waves-light btn-large offer-btn"><img src="assets/images/icon/dis1.png"

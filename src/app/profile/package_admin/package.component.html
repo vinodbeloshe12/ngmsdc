@@ -6,8 +6,9 @@
 		    <div class="db-2">
 		      <div class="db-2-com db-2-main">
 		        <h4>Packages
-		          <button (click)="isFormOpen=!isFormOpen">{{isFormOpen?'Close':'Add New'}} <i _ngcontent-kiv-c1=""
-		              aria-hidden="true" [ngClass]="isFormOpen?'fa-times':'fa-plus'" class="fa"></i></button>
+		          <button (click)="isFormOpen=!isFormOpen;packageData={}">{{isFormOpen?'Close':'Add New'}} <i
+		              _ngcontent-kiv-c1="" aria-hidden="true" [ngClass]="isFormOpen?'fa-times':'fa-plus'"
+		              class="fa"></i></button>
 		        </h4>
 		        <div *ngIf="!isFormOpen" class="db-2-main-com db-2-main-com-table">
 		          <table class="responsive-table">
@@ -61,6 +62,17 @@
 		                  Subtitle is required
 		                </div>
 		              </div>
+		            </div>
+		            <div class="row">
+		              <div class="input-field col s12">
+		                <label>Description</label>
+		                <div name="description" #description="ngModel" [(ngModel)]="packageData.description" [ngxSummernote]>
+		                </div>
+		                <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+		                  Description is required
+		                </div>
+		              </div>
+
 		            </div>
 		            <div class="row">
 		              <div class="input-field col s12 m6">
