@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeService } from '../services/home.service';
+import { imgUrl } from '../app.constants';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,6 +9,7 @@ import { HomeService } from '../services/home.service';
 })
 export class HomeComponent implements OnInit {
   homeData: any = {};
+  imgUrl = imgUrl;
   constructor(private router: Router, private homeService: HomeService) { }
 
   ngOnInit() {

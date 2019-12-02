@@ -78,7 +78,8 @@
           <div class="b_pack rows">
             <!-- TOUR TITLE -->
             <div class="col-md-9 col-sm-9">
-              <h4><a (click)="changeRoute(data)" title="{{data.title}}">{{data.name}}({{data.duration}})<span
+              <h4><a (click)="changeRoute(data)" title="{{data.title}}">{{data.name}}({{data.duration}}) <i
+                    class='fa fa-inr' aria-hidden='true'></i>{{data.price}}<span
                     class="v_pl_name">-{{data.location}}</span></a></h4>
             </div>
             <!-- TOUR ICONS -->
@@ -325,44 +326,18 @@
       </div>
       <div class="popu-places-home">
         <!-- POPULAR PLACES 1 -->
-        <div class="col-md-6 col-sm-6 col-xs-12 place">
-          <div class="col-md-6 col-sm-12 col-xs-12"> <img src="assets/images/sight/4.jpg" alt="" /> </div>
+        <div *ngFor="let data of homeData.tourist_points" class="col-md-6 col-sm-6 col-xs-12 place">
+          <div class="col-md-6 col-sm-12 col-xs-12"> <img src="{{imgUrl}}{{data.image}}" alt="" /> </div>
           <div class="col-md-6 col-sm-12 col-xs-12">
-            <h3><span>Outdoor Activities</span> Tarkarli Beach</h3>
-            <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p> <a href="tour-details.html"
-              class="link-btn">more info</a>
+            <!-- <h3>{{data.title}}</h3> -->
+            <h3><span>Outdoor Activities</span> {{data.title}}</h3>
+            <p>{{data.meta_description}}</p>
+            <a href="tour-details.html" class="link-btn">more info</a>
           </div>
         </div>
-        <!-- POPULAR PLACES 2 -->
-        <div class="col-md-6 col-sm-6 col-xs-12 place">
-          <div class="col-md-6 col-sm-12 col-xs-12"> <img src="assets/images/sight/1.jpg" alt="" /> </div>
-          <div class="col-md-6 col-sm-12 col-xs-12">
-            <h3><span>Sights & Landmarks</span> Rameshwar Temple</h3>
-            <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p> <a href="tour-details.html"
-              class="link-btn">more info</a>
-          </div>
-        </div>
+
       </div>
-      <div class="popu-places-home">
-        <!-- POPULAR PLACES 3 -->
-        <div class="col-md-6 col-sm-6 col-xs-12 place">
-          <div class="col-md-6 col-sm-12 col-xs-12"> <img src="assets/images/sight/2.jpg" alt="" /> </div>
-          <div class="col-md-6 col-sm-12 col-xs-12">
-            <h3><span>Sights & Landmarks</span> Rock Garden</h3>
-            <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p> <a href="tour-details.html"
-              class="link-btn">more info</a>
-          </div>
-        </div>
-        <!-- POPULAR PLACES 4 -->
-        <div class="col-md-6 col-sm-6 col-xs-12 place">
-          <div class="col-md-6 col-sm-12 col-xs-12"> <img src="assets/images/sight/3.jpg" alt="" /> </div>
-          <div class="col-md-6 col-sm-12 col-xs-12">
-            <h3><span>Sights & Landmarks</span> Sindhudurg Fort</h3>
-            <p>lorem ipsum simplelorem ipsum simplelorem ipsum simplelorem ipsum simple</p> <a href="tour-details.html"
-              class="link-btn">more info</a>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>

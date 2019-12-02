@@ -1,19 +1,7 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import {
-  ActivatedRoute,
-  Router
-} from '@angular/router';
-import {
-  NgxGalleryOptions,
-  NgxGalleryImage,
-  NgxGalleryAnimation
-} from 'ngx-gallery';
-import {
-  PackageService
-} from '../services/package.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { PackageService } from '../services/package.service';
 
 @Component({
   selector: 'app-package',
@@ -23,6 +11,9 @@ import {
 export class PackageComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+  packageActivities = [];
+  packageThingsToCarry = [];
+  packageInclusions = [];
   package: any = {};
   packages = [{
     "name": "Economy",
@@ -57,25 +48,6 @@ export class PackageComponent implements OnInit {
       preview: false
     }
     ];
-
-    this.galleryImages = [{
-      small: 'assets/images/gallery/t1.jpg',
-      medium: 'assets/images/gallery/t1.jpg',
-      big: 'assets/images/gallery/t1.jpg',
-      description: 'test'
-    },
-    {
-      small: 'assets/images/gallery/t2.jpg',
-      medium: 'assets/images/gallery/t2.jpg',
-      big: 'assets/images/gallery/t2.jpg'
-    },
-    {
-      small: 'assets/images/gallery/t3.jpg',
-      medium: 'assets/images/gallery/t3.jpg',
-      big: 'assets/images/gallery/t3.jpg'
-    }
-    ];
-
     console.log("params", this.activatedRoute.snapshot.params.name);
     let fIndex = this.packages.findIndex(i => i.name == this.activatedRoute.snapshot.params.name);
     if (fIndex != -1) {
@@ -94,6 +66,29 @@ export class PackageComponent implements OnInit {
     this.packageService.getPackageDetails(name).subscribe((res: any) => {
       console.log("res", res)
       this.package = res.details;
+      this.loadGallery(res.images);
+      this.shuffle(this.galleryImages);
+      this.packageActivities = res.details ? res.details.activities.includes(',') ? res.details.activities.split(',') : [] : [];
+      this.packageThingsToCarry = res.details ? res.details.thingstocarry.includes(',') ? res.details.thingstocarry.split(',') : [] : [];
+      this.packageInclusions = res.details ? res.details.inclusions.includes(',') ? res.details.inclusions.split(',') : [] : [];
+    });
+  }
+
+  shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+  }
+
+  loadGallery(images) {
+    this.galleryImages = [];
+    images.forEach(element => {
+      this.galleryImages.push(
+        {
+          small: 'assets/images/package/' + element.image,
+          medium: 'assets/images/package/' + element.image,
+          big: 'assets/images/package/' + element.image,
+          description: element.name
+        }
+      );
     });
   }
 

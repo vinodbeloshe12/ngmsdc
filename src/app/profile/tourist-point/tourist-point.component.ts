@@ -10,8 +10,10 @@ export class TouristPointComponent implements OnInit {
   touristPoints: any = [];
   touristPointData: any = {};
   isFormOpen: boolean = false;
+  isEdit: boolean = false;
   banner;
   image;
+  imageGallery;
   constructor(private touristpointService: TouristPointService) { }
 
   ngOnInit() {
@@ -26,12 +28,12 @@ export class TouristPointComponent implements OnInit {
     });
   }
 
-  readUrl(event: any, type) {
-    if (event.target.files && event.target.files[0]) {
+  onFileChange(fileInput: any, type) {
+    if (fileInput.srcElement && fileInput.srcElement.files[0]) {
       if (type == 1) {
-        this.touristPointData.banner_image = event.target.files[0].name;
+        this.touristPointData.banner_image = fileInput.srcElement.files[0];
       } else {
-        this.touristPointData.image = event.target.files[0].name;
+        this.touristPointData.image = fileInput.srcElement.files[0];
       }
       var reader = new FileReader();
       reader.onload = (event: ProgressEvent) => {
@@ -41,17 +43,58 @@ export class TouristPointComponent implements OnInit {
           this.image = (<FileReader>event.target).result;
         }
       }
-      reader.readAsDataURL(event.target.files[0]);
+      reader.readAsDataURL(fileInput.srcElement.files[0]);
     }
+  }
+
+  onFileChangeMultiple(fileInput: any) {
+    this.imageGallery = [];
+    let files = fileInput.srcElement.files;
+    for (let i = 0; i < files.length; i++) {
+      this.imageGallery.push(files[i]);
+    }
+  }
+
+  editForm(id) {
+    this.isEdit = true;
+    this.gtTouristPoint(id);
+  }
+
+  gtTouristPoint(id) {
+    this.touristpointService.getTouristPoint(id).subscribe((res: any) => {
+      if (res.value) {
+        this.touristPointData = res.data;
+        this.isFormOpen = true;
+      } else {
+        alert(res.message);
+      }
+    });
+  }
+
+  deleteTouristPoint(id) {
+    this.touristpointService.deleteTouristPoint(id).subscribe((res: any) => {
+      if (res.value) {
+        this.touristPointData = {};
+        this.getAllTouristPoints();
+        alert(res.message);
+      } else {
+        alert(res.message);
+      }
+    });
   }
 
   submitTouristPoint(data) {
     console.log("data", data);
-    data.image = this.image;
-    data.banner_image = this.banner;
+    data.image_gallery = this.imageGallery;
     this.touristpointService.createTouristPoint(data).subscribe((res: any) => {
       if (res.value) {
         console.log(res.message);
+        this.touristPointData = {};
+        this.isFormOpen = false;
+        this.getAllTouristPoints();
+        alert(res.message);
+      } else {
+        alert(res.message);
       }
     })
   }

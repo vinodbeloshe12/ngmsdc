@@ -11,7 +11,7 @@
               class="fa"></i></button>
         </h4>
         <div *ngIf="!isFormOpen" class="db-2-main-com db-2-main-com-table">
-          <p *ngIf="touristPoints && touristPoints.length>=0">
+          <p *ngIf="touristPoints && touristPoints.length==0">
             Data not found
           </p>
           <table *ngIf="touristPoints && touristPoints.length>0" class="responsive-table">
@@ -32,8 +32,9 @@
                 <td><a target="_blank" routerLink="/sightseeing/{{data.web_title}}" class="db-done">view more</a>
                 </td>
                 <td>
-                  <a><i class="fa fa-pencil db-done" aria-hidden="true"></i></a>
-                  <a> <i class="fa fa-times db-not-done" aria-hidden="true"></i></a>
+                  <a (click)="editForm(data.id)"><i class="fa fa-pencil db-done" aria-hidden="true"></i></a>
+                  <a (click)="deleteTouristPoint(data.id)"> <i class="fa fa-times db-not-done"
+                      aria-hidden="true"></i></a>
                 </td>
               </tr>
             </tbody>
@@ -44,6 +45,16 @@
         <!-- form start -->
         <div *ngIf="isFormOpen" class="db-2-main-com db2-form-pay db2-form-com">
           <form (ngSubmit)="submitTouristPoint(touristPointData)" #toursitPointForm="ngForm" class="col s12">
+            <div *ngIf="isEdit" class="row">
+              <div class="input-field col s12">
+                <label>Id</label>
+                <input type="text" readonly required name="id" #id="ngModel" [(ngModel)]="touristPointData.id"
+                  placeholder="Enter Title" class="validate">
+                <!-- <div [hidden]="id.valid || id.pristine" class="alert alert-danger">
+                  Title is required
+                </div> -->
+              </div>
+            </div>
             <div class="row">
               <div class="input-field col s12">
                 <label>Title</label>
@@ -131,7 +142,7 @@
             <div class="row db-file-upload">
               <div class="file-field input-field">
                 <div class="db-up-btn"> <span>Banner</span>
-                  <input (change)="readUrl($event,1)" type="file"> </div>
+                  <input (change)="onFileChange($event,1)" type="file"> </div>
                 <div class="file-path-wrapper">
                   <input class="file-path validate" name="bannerimage" [(ngModel)]="touristPointData.banner_image"
                     type="text"> </div>
@@ -141,18 +152,33 @@
             <div class="row db-file-upload">
               <div class="file-field input-field">
                 <div class="db-up-btn"> <span>Image</span>
-                  <input type="file" (change)="readUrl($event,2)"> </div>
+                  <input type="file" (change)="onFileChange($event,2)">
+                  <!-- <input type="file" (change)="readUrl($event,2)">  -->
+                </div>
                 <div class="file-path-wrapper">
                   <input class="file-path validate" name="image" [(ngModel)]="touristPointData.image" type="text">
                 </div>
                 <img *ngIf="image" width="300" [src]="image">
               </div>
             </div>
+
+            <div class="row db-file-upload">
+              <div class="file-field input-field">
+                <div class="db-up-btn"> <span>Image Gallery</span>
+                  <input type="file" multiple name="image_name" (change)="onFileChangeMultiple($event)">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" name="image_name" [(ngModel)]="touristPointData.galleryimage"
+                    type="text">
+                </div>
+
+              </div>
+            </div>
             <div class="row">
               <div class="input-field col s12">
                 <!-- <input type="submit" value="SUBMIT" class="waves-effect waves-light full-btn"> -->
                 <button type="submit" class="waves-effect waves-light full-btn"
-                  [disabled]="!toursitPointForm.form.valid">Submit</button>
+                  [disabled]="!toursitPointForm.form.valid">{{isEdit?'Update':'Save'}}</button>
               </div>
             </div>
           </form>
