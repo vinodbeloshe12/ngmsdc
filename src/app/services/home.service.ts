@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { apiUrl } from '../app.constants';
+import { apiUrl, httpOptionsPost } from '../app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -16,4 +16,10 @@ export class HomeService {
   public getHome() {
     return this.http.get(apiUrl + "getHome");
   }
+
+  public bookNow(data) {
+    return this.http.post(apiUrl + "bookNow", JSON.stringify(data), httpOptionsPost);
+  }
+
+
 }

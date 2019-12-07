@@ -25,7 +25,7 @@
             {{package.price}}
           </li>
           <li *ngIf="package.duration" class="dl3">Duration : {{package.duration}}</li>
-          <li class="dl4 pull-right"><a routerLink="/booknow">Book Now</a> </li>
+          <li class="dl4 pull-right"><a (click)="navigateToBookNow(package)">Book Now</a> </li>
         </ul>
       </div>
     </div>

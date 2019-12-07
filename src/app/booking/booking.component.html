@@ -1,49 +1,57 @@
 <section>
-		<div class="tr-register">
-			<div class="tr-regi-form v2-search-form">
-				<h4>Booking by <span>Email</span></h4>
-				<p>It's free and always will be.</p>
-				<form class="contact__form" method="post" action="http://rn53themes.net/themes/demo/travelz/mail/tourbooking.php">
-							<div class="alert alert-success contact__msg" style="display: none" role="alert">
-								Thank you for arranging a wonderful trip for us! Our team will contact you shortly!
-							</div>
-							<div class="row">
-								<div class="input-field col s12">
-									<input type="text" placeholder="Enter your name"  class="validate" name="name" required>
-									<!-- <label>Enter your name</label> -->
-								</div>
-							</div>
-							<div class="row">
-								<div class="input-field col s6">
-									<input type="number"  class="validate" name="phone" required>
-									<label>Enter your phone</label>
-								</div>
-								<div class="input-field col s6">
-									<input type="email"  class="validate" name="email" required>
-									<label>Enter your email</label>
-								</div>
-							</div>
-							<div class="row">
-								<div class="input-field col s12">
-									<input type="text" id="select-city-1" class="autocomplete validate" name="city">
-									<label for="select-city-1">Select City or Place</label>
-								</div>
-								<div class="input-field col s12">
-                                        
-                                        <input type="text" placeholder="Enter your package" [(ngModel)]="package.name" class="validate" name="package" required>
-                                        <!-- <label>Enter your package</label> -->
-									<!-- <select name="package">
-										<option value="" disabled selected>Select your package</option>
-										<option value="Honeymoon Package">Honeymoon Package</option>
-										<option value="Family Package">Family Package</option>
-										<option value="Holiday Package">Holiday Package</option>
-										<option value="Group Package">Group Package</option>
-										<option value="Regular Package">Regular Package</option>
-									</select> -->
-								</div>
-                            </div>
-                            
-                            <div class="row mb3">
+  <div class="tr-register">
+    <div class="tr-regi-form v2-search-form">
+      <h4>Booking by <span>Email</span></h4>
+      <p>It's free and always will be.</p>
+      <form class="contact__form" #bookingForm="ngForm" (ngSubmit)="bookNow(bookingData)">
+        <div class="alert alert-success contact__msg" style="display: none" role="alert">
+          Thank you for arranging a wonderful trip for us! Our team will contact you shortly!
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <!-- <label>Name</label> -->
+            <input type="text" placeholder="Enter your name" class="validate" #name="ngModel"
+              [(ngModel)]="bookingData.name" name="name" required>
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+              Name is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <!-- <label>Phone</label> -->
+            <input type="text" #phone="ngModel" [(ngModel)]="bookingData.phone" placeholder="Enter your phone"
+              class="validate" name="phone" required>
+            <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+              Phone Number is required
+            </div>
+          </div>
+          <div class="input-field col s6">
+            <!-- <label>Email</label> -->
+            <input type="email" #email="ngModel" [(ngModel)]="bookingData.email" placeholder="Enter your email"
+              class="validate" name="email" required>
+            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+              Email is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <!-- <label for="select-city-1">City or Place</label> -->
+            <input type="text" #city="ngModel" [(ngModel)]="bookingData.city" placeholder="City or Place"
+              id="select-city-1" class="autocomplete validate" name="city">
+            <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+              City or Place is required
+            </div>
+          </div>
+          <div class="input-field col s12">
+            <!-- <label>Package</label> -->
+            <input type="text" readonly placeholder="Enter your package" [(ngModel)]="bookingData.package_name"
+              class="validate" name="package" required>
+          </div>
+        </div>
+
+        <!-- <div class="row mb3">
                                     <h5>Activities</h5>
                                         <div class="input-field col s6">
                                                 <input type="checkbox" class="form-check-input" id="scuba">
@@ -61,69 +69,74 @@
                                                 <input type="checkbox" class="form-check-input" id="Boating">
                                                 <label class="form-check-label" for="Boating">   Boating&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </label>
                                         </div>
-                                     </div>	
+                                     </div>	 -->
 
-							<div class="row">
-								<div class="input-field col s6">
-									<input type="text" class="datepicker" id="from" name="arrival">
-									<label for="from">Arrival Date</label>
-								</div>
-								<div class="input-field col s6">
-									<input type="text" id="to" name="departure">
-									<label for="to">Departure Date</label>
-								</div>
-                            </div>
-                            
+        <div class="row">
+          <div class="input-field col s6">
+            <!-- <label for="from">Arrival Date</label> -->
+            <input type="date" [(ngModel)]="bookingData.arrival_date" class="datepicker" id="from" name="arrival">
+          </div>
+          <div class="input-field col s6">
+            <!-- <label for="to">Departure Date</label> -->
+            <input type="date" [(ngModel)]="bookingData.deputure_date" id="to" name="departure">
+          </div>
+        </div>
 
-							<div class="row">
-								<div class="input-field col s6">
-									<select name="noofadults">
-										<option value="" disabled selected>No of adults</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-									</select>
-								</div>
-								<div class="input-field col s6">
-									<select name="noofchildrens">
-										<option value="" disabled selected>No of childrens</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>											
-									</select>
-								</div>
-							</div>							
 
-							<div class="row">
-								<div class="input-field col s6">
-									<select name="minprice">
-										<option value="" disabled selected>Min Price</option>
-										<option value="$200">INR 4,000</option>
-										<option value="$500">INR 7,000</option>
-										<option value="$1000">INR 10,000</option>
-											</select>
-								</div>
-								<div class="input-field col s6">
-									<select name="maxprice">
-										<option value="" disabled selected>Max Price</option>
-										<option value="$200">INR 7,000</option>
-											<option value="$10,000">INR 10,000</option>
-										<option value="$50,000">INR 15,000</option>
-									</select>
-								</div>								
-							</div>							
-							<div class="row">
-								<div class="input-field col s12">
-                                        <i class="waves-effect waves-light tourz-sear-btn waves-input-wrapper" style=""><input type="submit" value="BOOK NOW" class="waves-button-input"></i>
-                                    </div>
-							</div>
-						</form>
-			</div>
-		</div>
-	</section>
+        <div class="row">
+          <div class="input-field col s6">
+            <!-- <label for="to">No of adults</label> -->
+            <select [(ngModel)]="bookingData.adults" name="noofadults">
+              <option value="" disabled selected>No of adults</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+          <div class="input-field col s6">
+            <!-- <label for="to">No of childrens</label> -->
+            <select [(ngModel)]="bookingData.childrens" name="noofchildrens">
+              <option value="" disabled selected>No of childrens</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <select [(ngModel)]="bookingData.min_price" name="minprice">
+              <option value="" disabled selected>Min Price</option>
+              <option value="4000">INR 4,000</option>
+              <option value="7000">INR 7,000</option>
+              <option value="10000">INR 10,000</option>
+            </select>
+          </div>
+          <div class="input-field col s6">
+            <select [(ngModel)]="bookingData.max_price" name="maxprice">
+              <option value="" disabled selected>Max Price</option>
+              <option value="7000">INR 7,000</option>
+              <option value="10000">INR 10,000</option>
+              <option value="15000">INR 15,000</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="waves-effect waves-light tourz-sear-btn waves-input-wrapper"><input
+                [disabled]="!bookingForm.form.valid" type="submit" value="BOOK NOW" class="waves-button-input"></i>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

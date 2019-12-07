@@ -6,7 +6,7 @@
     <div class="db-2">
       <div class="db-2-com db-2-main">
         <h4>Tourist Point
-          <button (click)="isFormOpen=!isFormOpen;packageData={}">{{isFormOpen?'Close':'Add New'}} <i
+          <button (click)="isFormOpen=!isFormOpen;touristPointData={}">{{isFormOpen?'Close':'Add New'}} <i
               _ngcontent-kiv-c1="" aria-hidden="true" [ngClass]="isFormOpen?'fa-times':'fa-plus'"
               class="fa"></i></button>
         </h4>
@@ -69,7 +69,7 @@
             <div class="row">
               <div class="input-field col s12">
                 <label>Description</label>
-                <div name="description" #description="ngModel" [(ngModel)]="touristPointData.description"
+                <div name="description" required #description="ngModel" [(ngModel)]="touristPointData.description"
                   [ngxSummernote]>
                 </div>
                 <div [hidden]="description.valid || description.pristine" class="alert alert-danger">

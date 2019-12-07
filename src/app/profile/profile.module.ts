@@ -10,16 +10,16 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { EventComponent } from './event_admin/event.component';
 import { HotelComponent } from './hotel_admin/hotel.component';
 import { PaymentComponent } from './payment_admin/payment.component';
-import { TouristPointComponent } from './tourist-point/tourist-point.component';
+// import { TouristPointComponent } from './tourist-point/tourist-point.component';
 
 
 @NgModule({
-  declarations: [ProfileComponent, PackageComponent, SidebarComponent, HotelComponent, EventComponent, PaymentComponent, TouristPointComponent],
+  declarations: [ProfileComponent, PackageComponent, SidebarComponent, HotelComponent, EventComponent, PaymentComponent],
   imports: [
     CommonModule,
+    NgxSummernoteModule,
     FormsModule,
     ProfileRoutingModule,
-    NgxSummernoteModule
   ]
 })
 export class ProfileModule { }

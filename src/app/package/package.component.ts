@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import { PackageService } from '../services/package.service';
+import { imgUrl } from '../app.constants';
+import { MetaService } from '../services/meta.service';
 
 @Component({
   selector: 'app-package',
@@ -23,7 +25,7 @@ export class PackageComponent implements OnInit {
     "offer": "assets/images/band.png",
     "image": "assets/images/t5.png"
   }];
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private packageService: PackageService) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private packageService: PackageService, private metaService: MetaService) { }
 
   ngOnInit() {
     this.galleryOptions = [{
@@ -59,14 +61,26 @@ export class PackageComponent implements OnInit {
   changeRoute(packageDetail) {
     localStorage.setItem("selectedPackage", JSON.stringify(packageDetail));
     this.router.navigate(['package', packageDetail.name]);
-    this.ngOnInit();
+    // this.ngOnInit();
+  }
+
+  navigateToBookNow(data) {
+    localStorage.setItem('selectedPackage', JSON.stringify(data));
+    localStorage.setItem('lastUrl', location.pathname);
+    // this.router.navigate['booknow'];
+    this.router.navigateByUrl('booknow');
   }
 
   getPackageDetails(name) {
     this.packageService.getPackageDetails(name).subscribe((res: any) => {
       console.log("res", res)
       this.package = res.details;
-      this.loadGallery(res.images);
+      this.loadMetaData(res.details);
+      if (res.images && res.images.length > 0) {
+        this.loadGallery(res.images, 1);
+      } else {
+        this.loadGallery(res.gallery, 2);
+      }
       this.shuffle(this.galleryImages);
       this.packageActivities = res.details ? res.details.activities.includes(',') ? res.details.activities.split(',') : [] : [];
       this.packageThingsToCarry = res.details ? res.details.thingstocarry.includes(',') ? res.details.thingstocarry.split(',') : [] : [];
@@ -78,18 +92,31 @@ export class PackageComponent implements OnInit {
     array.sort(() => Math.random() - 0.5);
   }
 
-  loadGallery(images) {
+  loadGallery(images, type) {
+    let baseImgUrl = "";
+    if (type == '1') {
+      baseImgUrl = imgUrl;
+    } else {
+      baseImgUrl = "assets/images/package/";
+    }
     this.galleryImages = [];
     images.forEach(element => {
       this.galleryImages.push(
         {
-          small: 'assets/images/package/' + element.image,
-          medium: 'assets/images/package/' + element.image,
-          big: 'assets/images/package/' + element.image,
+          small: baseImgUrl + element.image,
+          medium: baseImgUrl + element.image,
+          big: baseImgUrl + element.image,
           description: element.name
         }
       );
     });
+  }
+
+
+  loadMetaData(data) {
+    this.metaService.setTitle(data.title);
+    this.metaService.setTag('description', data.meta_description);
+    this.metaService.setTag('keywords', data.meta_keywords);
   }
 
 }
