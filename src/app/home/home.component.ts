@@ -1,19 +1,68 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { MetaService } from '../services/meta.service';
 import { HomeService } from '../services/home.service';
 import { imgUrl } from '../app.constants';
-import { MetaService } from '../services/meta.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[];
   homeData: any = {};
   imgUrl = imgUrl;
   constructor(private router: Router, private homeService: HomeService, private metaService: MetaService) { }
 
   ngOnInit() {
+    this.galleryOptions = [{
+      width: '100%',
+      height: '450px',
+      thumbnails: false,
+      imageAutoPlay: true,
+      imageAutoPlayInterval: 4000,
+      imageAnimation: NgxGalleryAnimation.Zoom,
+      preview: false
+    },
+    // max-width 800
+    {
+      breakpoint: 800,
+      width: '100%',
+      height: '300px',
+      imagePercent: 80,
+      thumbnails: false,
+      imageAutoPlay: true,
+      imageAutoPlayInterval: 4000,
+      imageAnimation: NgxGalleryAnimation.Slide,
+      preview: false
+    },
+    // max-width 400
+    {
+      breakpoint: 400,
+      preview: false
+    }
+    ];
+
+    this.galleryImages = [
+      {
+        small: 'assets/images/gallery/s1.jpg',
+        medium: 'assets/images/gallery/s1.jpg',
+        big: 'assets/images/gallery/s1.jpg'
+      },
+      {
+        small: 'assets/images/gallery/s2.jpg',
+        medium: 'assets/images/gallery/s2.jpg',
+        big: 'assets/images/gallery/s2.jpg'
+      },
+      {
+        small: 'assets/images/gallery/s3.jpg',
+        medium: 'assets/images/gallery/s3.jpg',
+        big: 'assets/images/gallery/s3.jpg'
+      }
+    ];
     this.getHome();
   }
 

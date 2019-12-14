@@ -50,6 +50,8 @@ export class PackageComponent implements OnInit {
       preview: false
     }
     ];
+
+
     console.log("params", this.activatedRoute.snapshot.params.name);
     let fIndex = this.packages.findIndex(i => i.name == this.activatedRoute.snapshot.params.name);
     if (fIndex != -1) {
