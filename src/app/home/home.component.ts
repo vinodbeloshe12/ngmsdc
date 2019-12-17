@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
   loadMetaData(data) {
     this.metaService.setTitle('Malvan Tarkarli Tour Planner | Homepage');
     this.metaService.setTag('description', 'Now plan your Malvan trip with Malvan Tarkarli Tour Planner, Malvan offers tourists a pleasant beach getaway that boasts historic sites and peaceful temples.');
-    this.metaService.setTag('keywords', 'best places to visit in malvan, tarkarli , tour planner in malvan, malvantarkarlitourplanner, best places to visit in mumbai');
+    this.metaService.setTag('keywords', 'best places to visit in malvan, tarkarli , tour planner in malvan, malvantarkarlitourplanner,Tarkarli beach activities,Tarkarli beach scuba diving,Tarkarli,Malvan,Malvan beach,Package,Watersports in Tarkarli,Watersports in malvan,Tarkarli watersports,Malvan trip');
   }
 
   changeRoute(packageDetail) {

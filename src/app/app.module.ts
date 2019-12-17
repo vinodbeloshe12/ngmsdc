@@ -13,6 +13,7 @@ import { BookingComponent } from './booking/booking.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { ContactComponent } from './contact/contact.component';
 
 export class CustomHammerConfig extends HammerGestureConfig {
   overrides = {
@@ -27,7 +28,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    BookingComponent
+    BookingComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
