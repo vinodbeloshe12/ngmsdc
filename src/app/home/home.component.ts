@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
       breakpoint: 800,
       width: '100%',
       height: '300px',
-      imagePercent: 80,
+      imagePercent: 100,
       thumbnails: false,
       imageAutoPlay: true,
       imageAutoPlayInterval: 4000,

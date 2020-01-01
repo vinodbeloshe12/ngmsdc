@@ -45,31 +45,10 @@
                 aria-hidden="true"></i></span><span class="tour_rat">4.5</span> -->
         </div>
 
-        <!--====== ABOUT THE TOUR ==========-->
-        <div class="tour_head1 row">
-          <h3>About The Tour</h3>
-
-          <div *ngIf="packageActivities && packageActivities.length>0" class="col-md-4 col-sm-6">
-            <h4><img alt="Things to carry" src="assets/images/icon/a18.png">Activities</h4>
-            <ul>
-              <li *ngFor="let data of packageActivities">{{data}}</li>
-            </ul>
-          </div>
-          <div *ngIf="packageInclusions && packageInclusions.length>0"
-            [ngClass]="packageActivities.length==0?'col-md-6 col-sm-6':'col-md-4 col-sm-6'">
-            <h4><img alt="Things to carry" src="assets/images/icon/dbl1.png">Inclusions</h4>
-            <ul>
-              <li *ngFor="let data of packageInclusions">{{data}}</li>
-            </ul>
-          </div>
-          <div *ngIf="packageThingsToCarry && packageThingsToCarry.length>0"
-            [ngClass]="packageActivities.length==0?'col-md-6 col-sm-6':'col-md-4 col-sm-6'">
-            <h4><img alt="Things to carry" src="assets/images/icon/a17.png">Things to carry</h4>
-            <ul>
-              <li *ngFor="let data of packageThingsToCarry">{{data}}</li>
-            </ul>
-          </div>
-
+        <!--====== Photo Gallery ==========-->
+        <div class="tour_head1 hotel-book-room">
+          <h3>Photo Gallery</h3>
+          <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
         </div>
 
         <!--====== TOUR DESCRIPTION ==========-->
@@ -80,11 +59,7 @@
             <strong>(If required Food & Vehicle Extra Cost Will be Charged.)</strong>
           </p>
         </div>
-        <!--====== ROOMS: HOTEL BOOKING ==========-->
-        <div class="tour_head1 hotel-book-room">
-          <h3>Photo Gallery</h3>
-          <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
-        </div>
+
         <!--====== TOUR LOCATION ==========-->
         <!-- <div class="tour_head1 tout-map map-container">
 						<h3>Location</h3>
@@ -262,6 +237,33 @@
             </div>
           </div>
         </div> -->
+
+        <!--====== ABOUT THE TOUR ==========-->
+        <div class="tour_head1 row">
+          <h3>About The Tour</h3>
+
+          <div *ngIf="packageActivities && packageActivities.length>0" class="col-md-4 col-sm-6">
+            <h4><img alt="Things to carry" src="assets/images/icon/a18.png">Activities</h4>
+            <ul>
+              <li *ngFor="let data of packageActivities">{{data}}</li>
+            </ul>
+          </div>
+          <div *ngIf="packageInclusions && packageInclusions.length>0"
+            [ngClass]="packageActivities.length==0?'col-md-6 col-sm-6':'col-md-4 col-sm-6'">
+            <h4><img alt="Things to carry" src="assets/images/icon/dbl1.png">Inclusions</h4>
+            <ul>
+              <li *ngFor="let data of packageInclusions">{{data}}</li>
+            </ul>
+          </div>
+          <div *ngIf="packageThingsToCarry && packageThingsToCarry.length>0"
+            [ngClass]="packageActivities.length==0?'col-md-6 col-sm-6':'col-md-4 col-sm-6'">
+            <h4><img alt="Things to carry" src="assets/images/icon/a17.png">Things to carry</h4>
+            <ul>
+              <li *ngFor="let data of packageThingsToCarry">{{data}}</li>
+            </ul>
+          </div>
+
+        </div>
       </div>
       <div class="col-md-3 tour_r">
 

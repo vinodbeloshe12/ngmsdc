@@ -4774,9 +4774,10 @@ textarea {
 /* HOME PAGE SEARCH BOX 
 /*-------------------------------------------------*/
 .tourz-search {
-  background: url(../images/consul-bg-3.jpg) no-repeat;
+  background: url(../images/gallery/slide1.png) no-repeat;
   position: relative;
   background-size: cover;
+  height: 90vh;
 }
 
 .tourz-search {}
