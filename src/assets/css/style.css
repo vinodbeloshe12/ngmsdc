@@ -6424,7 +6424,7 @@ a.ui-button:active,
 /*--======================================================================--*/
 .wed-logo {
   float: left;
-  width: 20%;
+  width: 30%;
 }
 
 .wed-logo a {}
@@ -6556,7 +6556,7 @@ a.ui-button:active,
 /*-------------------------------------------------*/
 .main-menu {
   float: right;
-  width: 80%;
+  width: 70%;
 }
 
 .main-menu ul {
@@ -7491,7 +7491,10 @@ a.ui-button:active,
 
 .wed-logo a {}
 
-.wed-logo a img {}
+.wed-logo a img {
+  width: 35px !important;
+  padding: 2px 0px;
+}
 
 .ed-mm-right {
   float: left;

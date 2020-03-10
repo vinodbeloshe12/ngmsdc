@@ -1,17 +1,17 @@
 <!--HEADER SECTION-->
 <section>
-  <!-- <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery> -->
-  <div class="tourz-search">
+  <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+  <!-- <div class="tourz-search">
     <div class="container">
       <div class="row">
         <a routerLink="/package/Malvan_Tarkarli_Tour_Package_1_Day">
-          <div class="tourz-search-1">
-            <!-- <h1>Plan Your Travel Now!</h1>
+          <div class="tourz-search-1"> -->
+  <!-- <h1>Plan Your Travel Now!</h1>
           <p>Experience the various exciting tour and travel packages and Make hotel reservations, find vacation
             packages, search cheap hotels and events</p> -->
 
-            <div class="tourz-hom-ser">
-              <!-- <ul>
+  <!-- <div class="tourz-hom-ser"> -->
+  <!-- <ul>
               <li>
                 <a href="booking-tour-package.html"
                   class="waves-effect waves-light btn-large tourz-pop-ser-btn wow fadeInUp"
@@ -31,18 +31,26 @@
                   data-wow-duration="2s"><img src="assets/images/icon/1.png" alt=""> Hotel</a>
               </li>
             </ul> -->
-            </div>
+  <!-- </div>
           </div>
         </a>
       </div>
     </div>
-  </div>
+  </div> -->
+
+
 </section>
 <!--END HEADER SECTION-->
 
 <section *ngIf="homeData.packages">
   <div class="rows pad-bot-redu tb-space">
     <div class="container">
+
+      <div class="row pad-bot-redu">
+        <div class="col-lg-12 adbanner">
+          <img src="assets/images/activities/banner.jpg" class="img-responsive" alt="">
+        </div>
+      </div>
       <!-- TITLE & DESCRIPTION -->
       <div class="spe-title">
         <h2>Top <span>Tour Packages</span></h2>
@@ -116,18 +124,18 @@
       </div>
       <!-- CITY -->
       <div class="col-md-6" *ngFor="let data of homeData.activities | slice:0:1">
-        <a href="tour-details.html">
+        <a routerLink="/home">
           <div class="tour-mig-like-com">
             <div class="tour-mig-lc-img"> <img src="{{data.image}}" alt=""> </div>
             <div class="tour-mig-lc-con">
               <h5>{{data.name}}</h5>
-              <p><span>6 Packages</span> Starting from <i class='fa fa-inr' aria-hidden='true'></i>2,000 </p>
+              <p><span>6 Packages</span> Starting from <i class='fa fa-inr' aria-hidden='true'></i>{{data.price}} </p>
             </div>
           </div>
         </a>
       </div>
       <div class="col-md-3" *ngFor="let data of homeData.activities | slice:1:homeData.activities.length">
-        <a href="tour-details.html">
+        <a routerLink="/home">
           <div class="tour-mig-like-com">
             <div class="tour-mig-lc-img"> <img src="{{data.image}}" alt=""> </div>
             <div class="tour-mig-lc-con tour-mig-lc-con2">

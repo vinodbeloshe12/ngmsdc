@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
       height: '450px',
       thumbnails: false,
       imageAutoPlay: true,
-      imageAutoPlayInterval: 4000,
+      imageAutoPlayInterval: 6000,
       imageAnimation: NgxGalleryAnimation.Zoom,
       preview: false
     },
@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
       imagePercent: 100,
       thumbnails: false,
       imageAutoPlay: true,
-      imageAutoPlayInterval: 4000,
+      imageAutoPlayInterval: 6000,
       imageAnimation: NgxGalleryAnimation.Slide,
       preview: false
     },
@@ -56,11 +56,6 @@ export class HomeComponent implements OnInit {
         small: 'assets/images/gallery/s2.jpg',
         medium: 'assets/images/gallery/s2.jpg',
         big: 'assets/images/gallery/s2.jpg'
-      },
-      {
-        small: 'assets/images/gallery/s3.jpg',
-        medium: 'assets/images/gallery/s3.jpg',
-        big: 'assets/images/gallery/s3.jpg'
       }
     ];
     this.getHome();

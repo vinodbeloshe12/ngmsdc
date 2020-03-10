@@ -29,7 +29,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
     HomeComponent,
     FooterComponent,
     BookingComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
