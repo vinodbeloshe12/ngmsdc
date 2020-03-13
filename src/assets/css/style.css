@@ -6424,14 +6424,27 @@ a.ui-button:active,
 /*--======================================================================--*/
 .wed-logo {
   float: left;
-  width: 30%;
+  width: 40%;
 }
 
 .wed-logo a {}
 
 .wed-logo a img {
   /* width: 155px; */
-  padding: 0px 0px;
+  padding: 2px 0px;
+}
+
+.logo {
+  width: 68px;
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  background: #ffffff;
+  padding: 5px 10px;
+  z-index: 9999;
+  margin-right: 35px;
+  /* border-radius: 0px 0px 4px 4px; */
+  /* box-shadow: 0px 1px 15px 1px #00000026; */
 }
 
 .wed-menu {
@@ -6556,7 +6569,7 @@ a.ui-button:active,
 /*-------------------------------------------------*/
 .main-menu {
   float: right;
-  width: 70%;
+  width: 60%;
 }
 
 .main-menu ul {
@@ -6571,8 +6584,8 @@ a.ui-button:active,
 
 .main-menu ul li a {
   color: #000000;
-  padding: 20px 10px;
-  line-height: 58px;
+  padding: 10px 10px;
+  line-height: 45px;
   font-size: 15px;
   font-weight: 600;
   /* text-transform: uppercase;
@@ -7491,10 +7504,7 @@ a.ui-button:active,
 
 .wed-logo a {}
 
-.wed-logo a img {
-  width: 35px !important;
-  padding: 2px 0px;
-}
+.wed-logo a img {}
 
 .ed-mm-right {
   float: left;

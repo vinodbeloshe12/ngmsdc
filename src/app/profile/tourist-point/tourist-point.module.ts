@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
     NgxSummernoteModule,
     FormsModule
   ],
-  exports: [TouristPointComponent],
+  // exports: [TouristPointComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class TouristPointModule { }

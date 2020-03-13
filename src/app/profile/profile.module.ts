@@ -10,6 +10,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { EventComponent } from './event_admin/event.component';
 import { HotelComponent } from './hotel_admin/hotel.component';
 import { PaymentComponent } from './payment_admin/payment.component';
+import { TouristPointModule } from './tourist-point/tourist-point.module';
 // import { TouristPointComponent } from './tourist-point/tourist-point.component';
 
 
@@ -20,6 +21,7 @@ import { PaymentComponent } from './payment_admin/payment.component';
     NgxSummernoteModule,
     FormsModule,
     ProfileRoutingModule,
+    TouristPointModule
   ]
 })
 export class ProfileModule { }
