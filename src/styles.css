@@ -2,5 +2,24 @@
 @import '~@ngx-share/button/themes/circles/circles-dark-theme';
 
 share-buttons {
-    padding: 6px;
+  padding: 6px;
+}
+
+ol li {
+  width: 40%;
+  display: inline-block;
+  background: #cccccc2e;
+  margin: 4px;
+  padding: 4px 8px;
+}
+
+
+.imageCont {
+  background-image: url('assets/images/mount.png');
+  height: 150px;
+  background-size: 100%;
+  position: absolute;
+  z-index: 999;
+  bottom: 0;
+  width: 100%;
 }

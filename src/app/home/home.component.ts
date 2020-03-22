@@ -48,14 +48,24 @@ export class HomeComponent implements OnInit {
 
     this.galleryImages = [
       {
-        small: 'assets/images/gallery/s1.jpg',
-        medium: 'assets/images/gallery/s1.jpg',
-        big: 'assets/images/gallery/s1.jpg'
+        small: 'assets/images/gallery/slide1.jpg',
+        medium: 'assets/images/gallery/slide1.jpg',
+        big: 'assets/images/gallery/slide1.jpg'
       },
       {
-        small: 'assets/images/gallery/s2.jpg',
-        medium: 'assets/images/gallery/s2.jpg',
-        big: 'assets/images/gallery/s2.jpg'
+        small: 'assets/images/gallery/slide2.jpg',
+        medium: 'assets/images/gallery/slide2.jpg',
+        big: 'assets/images/gallery/slide2.jpg'
+      },
+      {
+        small: 'assets/images/gallery/slide3.jpg',
+        medium: 'assets/images/gallery/slide3.jpg',
+        big: 'assets/images/gallery/slide3.jpg'
+      },
+      {
+        small: 'assets/images/gallery/slide4.jpg',
+        medium: 'assets/images/gallery/slide4.jpg',
+        big: 'assets/images/gallery/slide4.jpg'
       }
     ];
     this.getHome();
