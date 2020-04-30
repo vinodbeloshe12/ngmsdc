@@ -27,7 +27,7 @@
     "@ngx-share/button": "^7.1.4",
     "@ngx-share/buttons": "^7.1.4",
     "@ngx-share/core": "^7.1.4",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "ngx-gallery": "5.10.0",
     "ngx-summernote": "0.7.0",
     "rxjs": "~6.4.0",
